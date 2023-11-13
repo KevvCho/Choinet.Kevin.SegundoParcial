@@ -1,0 +1,42 @@
+[
+  {
+    "Tipo": "Acuatico",
+    "VelocidadNatacion": 50,
+    "ComunicacionMarina": true,
+    "Nombre": "Aquaman",
+    "Poder": 4,
+    "NivelDePoder": 200
+  },
+  {
+    "Tipo": "Terrestre",
+    "Velocidad": 50,
+    "SuperFuerza": false,
+    "Nombre": "Flash",
+    "Poder": 0,
+    "NivelDePoder": 200
+  },
+  {
+    "Tipo": "Terrestre",
+    "Velocidad": 60,
+    "SuperFuerza": true,
+    "Nombre": "Hawkeye",
+    "Poder": 2,
+    "NivelDePoder": 100
+  },
+  {
+    "Tipo": "Aereo",
+    "VelocidadVuelo": 10,
+    "Alas": true,
+    "Nombre": "Falcon",
+    "Poder": 4,
+    "NivelDePoder": 50
+  },
+  {
+    "Tipo": "Terrestre",
+    "Velocidad": 100,
+    "SuperFuerza": true,
+    "Nombre": "Spiderman",
+    "Poder": 1,
+    "NivelDePoder": 50
+  }
+]

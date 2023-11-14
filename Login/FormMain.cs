@@ -38,11 +38,38 @@ namespace Login
             this.apellidoUsuario = apellido;
             this.correoUsuario = correo;
             this.perfilUsuario = perfil;
+            ActualizarBotones(this.perfilUsuario);
             LogConexion();
             ActualizarConexiones();
             this.statusNombre.Text = this.nombreUsuario;
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
+
+        public void ActualizarBotones (string perfil)
+        {
+            
+            if (perfil == "supervisor")
+            {
+                this.btnEliminar.Enabled = false;
+            }
+            else
+            {
+                if(perfil == "vendedor")
+                {
+                    this.btnAgregar.Enabled = false;
+                    this.btnEditar.Enabled = false;
+                    this.btnEliminar.Enabled = false;
+                }
+                else
+                {
+                    this.btnAgregar.Enabled = true;
+                    this.btnEditar.Enabled = true;
+                    this.btnEliminar.Enabled = true;
+                }
+            }
+
+        }
+
         /// <summary>
         /// Se recorre la lista de heroes y se agregan los nombres a la lista
         /// </summary>
@@ -54,7 +81,8 @@ namespace Login
 
             // Lista hardcodeada
             ColeccionHeroes<Heroe> coleccion = ObtenerColeccionHeroes();
-
+            
+            
 
             lstNombres.Items.Clear();
 

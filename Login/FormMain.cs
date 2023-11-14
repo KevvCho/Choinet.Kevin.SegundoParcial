@@ -67,7 +67,7 @@ namespace Login
                     this.btnEliminar.Enabled = true;
                 }
             }
-
+         
         }
 
         /// <summary>

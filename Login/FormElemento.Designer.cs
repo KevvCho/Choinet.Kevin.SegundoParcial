@@ -62,6 +62,7 @@
             // 
             // boxPoder
             // 
+            boxPoder.DropDownStyle = ComboBoxStyle.DropDownList;
             boxPoder.FormattingEnabled = true;
             boxPoder.Location = new Point(25, 92);
             boxPoder.Name = "boxPoder";
@@ -104,6 +105,7 @@
             // 
             // boxTipo
             // 
+            boxTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             boxTipo.FormattingEnabled = true;
             boxTipo.Location = new Point(318, 36);
             boxTipo.Name = "boxTipo";
@@ -151,6 +153,7 @@
             // 
             // boolBx
             // 
+            boolBx.DropDownStyle = ComboBoxStyle.DropDownList;
             boolBx.FormattingEnabled = true;
             boolBx.Items.AddRange(new object[] { "Falso", "Verdadero" });
             boolBx.Location = new Point(319, 148);

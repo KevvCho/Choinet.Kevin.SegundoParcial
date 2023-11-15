@@ -45,30 +45,7 @@ namespace Login
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
 
-        public void ActualizarBotones (string perfil)
-        {
-            
-            if (perfil == "supervisor")
-            {
-                this.btnEliminar.Enabled = false;
-            }
-            else
-            {
-                if(perfil == "vendedor")
-                {
-                    this.btnAgregar.Enabled = false;
-                    this.btnEditar.Enabled = false;
-                    this.btnEliminar.Enabled = false;
-                }
-                else
-                {
-                    this.btnAgregar.Enabled = true;
-                    this.btnEditar.Enabled = true;
-                    this.btnEliminar.Enabled = true;
-                }
-            }
-         
-        }
+        
 
         /// <summary>
         /// Se recorre la lista de heroes y se agregan los nombres a la lista
@@ -117,6 +94,32 @@ namespace Login
                 }
             }
         }
+
+        public void ActualizarBotones(string perfil)
+        {
+
+            if (perfil == "supervisor")
+            {
+                this.btnEliminar.Enabled = false;
+            }
+            else
+            {
+                if (perfil == "vendedor")
+                {
+                    this.btnAgregar.Enabled = false;
+                    this.btnEditar.Enabled = false;
+                    this.btnEliminar.Enabled = false;
+                }
+                else
+                {
+                    this.btnAgregar.Enabled = true;
+                    this.btnEditar.Enabled = true;
+                    this.btnEliminar.Enabled = true;
+                }
+            }
+
+        }
+
         /// <summary>
         /// Se escribe un log con los datos del usuario en modo append para guardar el historial
         /// </summary>

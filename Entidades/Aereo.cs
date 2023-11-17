@@ -6,35 +6,34 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Aereo : Heroe
+    public class Aereo : Heroe, IHeroe
     {
-        private int velocidadVuelo;
-        private bool alas;
 
-        public int VelocidadVuelo { get => velocidadVuelo; set => velocidadVuelo = value; }
-        public bool Alas { get => alas; set => alas = value; }
+        public int Velocidad { get; set; }
+        public bool BooleanoHeroe { get; set; }
+
         /// <summary>
         /// Constructor con todos los datos pasados por parametro
         /// </summary>
         public Aereo(int velocidadVuelo, bool alas, string nombre, EPoderes poder, int nivelDePoder) : this(nombre, poder, nivelDePoder)
         {
-            this.velocidadVuelo = velocidadVuelo;
-            this.alas = alas;
+            this.Velocidad = velocidadVuelo;
+            this.BooleanoHeroe = alas;
         }
         /// <summary>
         /// Constructor con solo un dato pasado por parametro
         /// </summary>
         public Aereo(int velocidadVuelo, string nombre, EPoderes poder, int nivelDePoder) : this(nombre, poder, nivelDePoder)
         {
-            this.velocidadVuelo = velocidadVuelo;
+            this.Velocidad = velocidadVuelo;
         }
         /// <summary>
         /// Constructor inicializando solo con los parametros base
         /// </summary>
         public Aereo(string nombre, EPoderes poder, int nivelDePoder) : base(nombre, poder, nivelDePoder)
         {
-            this.velocidadVuelo = 0;
-            this.alas = false;
+            this.Velocidad = 0;
+            this.BooleanoHeroe = false;
         }
         /// <summary>
         /// Calculacion de poder a partir de la velocidad y poder base
@@ -44,7 +43,7 @@ namespace Entidades
         {
             int poderTotal;
 
-            poderTotal = this.velocidadVuelo + nivelDePoder;
+            poderTotal = this.Velocidad + nivelDePoder;
 
             return poderTotal;
         }
@@ -57,7 +56,7 @@ namespace Entidades
         {
             string descripcionAlas = "";
 
-            if (this.alas == true)
+            if (this.BooleanoHeroe == true)
             {
                 descripcionAlas = "con alas";
             }
@@ -66,7 +65,7 @@ namespace Entidades
                 descripcionAlas = "sin alas";
             }
 
-            return $"¡Soy {this.nombre}, un héroe aéreo {descripcionAlas} y una velocidad de vuelo de {this.velocidadVuelo}!";
+            return $"¡Soy {this.nombre}, un héroe aéreo {descripcionAlas} y una velocidad de vuelo de {this.Velocidad}!";
         }
 
 
@@ -97,8 +96,8 @@ namespace Entidades
             bool mismoNombre = nombre == otroAereo.nombre;
             bool mismoPoder = poder == otroAereo.poder;
             bool mismoNivelDePoder = nivelDePoder == otroAereo.nivelDePoder;
-            bool mismaVelocidadVuelo = velocidadVuelo == otroAereo.velocidadVuelo;
-            bool mismasAlas = alas == otroAereo.alas;
+            bool mismaVelocidadVuelo = Velocidad == otroAereo.Velocidad;
+            bool mismasAlas = BooleanoHeroe == otroAereo.BooleanoHeroe;
 
 
             if (mismoNombre && mismoPoder && mismoNivelDePoder && mismaVelocidadVuelo && mismasAlas)

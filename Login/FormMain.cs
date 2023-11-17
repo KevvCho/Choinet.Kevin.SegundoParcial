@@ -250,20 +250,20 @@ namespace Login
                         if (heroe is Terrestre terrestre)
                         {
                             lstAtributos.Items.Add("Tipo: Terrestre");
-                            lstAtributos.Items.Add($"Nivel de super fuerza: {terrestre.SuperFuerza}");
+                            lstAtributos.Items.Add($"Tiene super fuerza: {terrestre.BooleanoHeroe}");
                             lstAtributos.Items.Add($"Nivel de velocidad: {terrestre.Velocidad}");
                         }
                         else if (heroe is Aereo aereo)
                         {
                             lstAtributos.Items.Add("Tipo: Aereo");
-                            lstAtributos.Items.Add($"Velocidad de vuelo: {aereo.VelocidadVuelo}");
-                            lstAtributos.Items.Add($"Tiene alas: {aereo.Alas}");
+                            lstAtributos.Items.Add($"Velocidad de vuelo: {aereo.Velocidad}");
+                            lstAtributos.Items.Add($"Tiene alas: {aereo.BooleanoHeroe}");
                         }
                         else if (heroe is Acuatico acuatico)
                         {
                             lstAtributos.Items.Add("Tipo: Acuatico");
-                            lstAtributos.Items.Add($"Velocidad de natacion: {acuatico.VelocidadNatacion}");
-                            lstAtributos.Items.Add($"Tiene comunicacion marina: {acuatico.ComunicacionMarina}");
+                            lstAtributos.Items.Add($"Velocidad de natacion: {acuatico.Velocidad}");
+                            lstAtributos.Items.Add($"Tiene comunicacion marina: {acuatico.BooleanoHeroe}");
                         }
 
                         string descripcionHeroe = heroe.ToString();
@@ -347,18 +347,18 @@ namespace Login
 
                         if (heroe is Acuatico acuatico)
                         {
-                            acuatico.VelocidadNatacion = velocidadSeleccionada;
-                            acuatico.ComunicacionMarina = elementoForm.BoolBox;
+                            acuatico.Velocidad = velocidadSeleccionada;
+                            acuatico.BooleanoHeroe = elementoForm.BoolBox;
                         }
                         else if (heroe is Terrestre terrestre)
                         {
                             terrestre.Velocidad = velocidadSeleccionada;
-                            terrestre.SuperFuerza = elementoForm.BoolBox;
+                            terrestre.BooleanoHeroe = elementoForm.BoolBox;
                         }
                         else if (heroe is Aereo aereo)
                         {
-                            aereo.VelocidadVuelo = velocidadSeleccionada;
-                            aereo.Alas = elementoForm.BoolBox;
+                            aereo.Velocidad = velocidadSeleccionada;
+                            aereo.BooleanoHeroe = elementoForm.BoolBox;
                         }
 
                         lstNombres.Items[lstNombres.SelectedIndex] = heroe.Nombre;

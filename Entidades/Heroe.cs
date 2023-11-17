@@ -33,7 +33,7 @@ namespace Entidades
         /// </summary>
         public Heroe()
         {
-            this.nombre = "";
+            this.nombre = "Sin nombre";
             this.poder = EPoderes.Telepatia;
             this.nivelDePoder = 0;
         }

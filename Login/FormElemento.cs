@@ -29,19 +29,19 @@ namespace Login
             {
                 this.boxTipo.SelectedItem = ETipoHeroe.Terrestre.ToString();
                 this.velTxt.Text = terrestre.Velocidad.ToString();
-                this.boolBx.SelectedIndex = terrestre.SuperFuerza ? 1 : 0;
+                this.boolBx.SelectedIndex = terrestre.BooleanoHeroe ? 1 : 0;
             }
             else if (heroeEditar is Aereo aereo)
             {
                 this.boxTipo.SelectedItem = ETipoHeroe.Aereo.ToString();
-                this.velTxt.Text = aereo.VelocidadVuelo.ToString();
-                this.boolBx.SelectedIndex = aereo.Alas ? 1 : 0;
+                this.velTxt.Text = aereo.Velocidad.ToString();
+                this.boolBx.SelectedIndex = aereo.BooleanoHeroe ? 1 : 0;
             }
             else if (heroeEditar is Acuatico acuatico)
             {
                 this.boxTipo.SelectedItem = ETipoHeroe.Acuatico.ToString();
-                this.velTxt.Text = acuatico.VelocidadNatacion.ToString();
-                this.boolBx.SelectedIndex = acuatico.ComunicacionMarina ? 1 : 0;
+                this.velTxt.Text = acuatico.Velocidad.ToString();
+                this.boolBx.SelectedIndex = acuatico.BooleanoHeroe ? 1 : 0;
             }
         }
         /// <summary>

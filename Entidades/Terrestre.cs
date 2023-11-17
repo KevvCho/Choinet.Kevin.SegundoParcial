@@ -8,33 +8,31 @@ namespace Entidades
 {
     public class Terrestre : Heroe
     {
-        private int velocidad;
-        private bool superFuerza;
+        public int Velocidad { get; set; }
+        public bool BooleanoHeroe { get; set; }
 
-        public int Velocidad { get => velocidad; set => velocidad = value; }
-        public bool SuperFuerza { get => superFuerza; set => superFuerza = value; }
         /// <summary>
         /// Constructor con todos los datos pasados por parametro
         /// </summary>
         public Terrestre(int velocidad, bool superFuerza, string nombre, EPoderes poder, int nivelDePoder) : this(nombre, poder, nivelDePoder)
         {
-            this.superFuerza = superFuerza;
-            this.velocidad = velocidad;
+            this.BooleanoHeroe = superFuerza;
+            this.Velocidad = velocidad;
         }
         /// <summary>
         /// Constructor con solo un dato pasado por parametro
         /// </summary>
         public Terrestre(bool superFuerza, string nombre, EPoderes poder, int nivelDePoder) : this(nombre, poder, nivelDePoder)
         {
-            this.superFuerza = superFuerza;
+            this.BooleanoHeroe = superFuerza;
         }
         /// <summary>
         /// Constructor inicializando solo con los parametros base
         /// </summary>
         public Terrestre(string nombre, EPoderes poder, int nivelDePoder) : base(nombre, poder, nivelDePoder)
         {
-            this.superFuerza = false;
-            this.velocidad = 0;
+            this.BooleanoHeroe = false;
+            this.Velocidad = 0;
         }
         /// <summary>
         /// Calculacion de poder a partir de la velocidad y poder base
@@ -44,7 +42,7 @@ namespace Entidades
         {
             int poderTotal;
 
-            poderTotal = this.velocidad + nivelDePoder;
+            poderTotal = this.Velocidad + nivelDePoder;
 
             return poderTotal;
         }
@@ -54,11 +52,11 @@ namespace Entidades
         /// <returns>Retorna un string con la descripcion</returns>
         protected override string ObtenerDescripcion()
         {
-            string descripcionVelocidad = $"con un nivel de velocidad de {velocidad}";
+            string descripcionVelocidad = $"con un nivel de velocidad de {Velocidad}";
 
             string descripcionFuerza = "";
 
-            if (this.superFuerza)
+            if (this.BooleanoHeroe)
             {
                 descripcionFuerza = $"con super fuerza";
             }
@@ -97,8 +95,8 @@ namespace Entidades
             bool mismoNombre = nombre == otroTerrestre.nombre;
             bool mismoPoder = poder == otroTerrestre.poder;
             bool mismoNivelDePoder = nivelDePoder == otroTerrestre.nivelDePoder;
-            bool mismaSuperFuerza = superFuerza == otroTerrestre.superFuerza;
-            bool mismaVelocidad = velocidad == otroTerrestre.velocidad;
+            bool mismaSuperFuerza = BooleanoHeroe == otroTerrestre.BooleanoHeroe;
+            bool mismaVelocidad = Velocidad == otroTerrestre.Velocidad;
 
             
             if (mismoNombre && mismoPoder && mismoNivelDePoder && mismaSuperFuerza && mismaVelocidad)

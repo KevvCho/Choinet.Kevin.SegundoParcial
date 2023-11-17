@@ -8,6 +8,8 @@ namespace Entidades
 {
     internal interface IHeroe
     {
-
+        public int Velocidad { get; set; }
+        public bool BooleanoHeroe { get; set; }
+        
     }
 }

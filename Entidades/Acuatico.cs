@@ -6,36 +6,34 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Acuatico : Heroe
+    public class Acuatico : Heroe, IHeroe
     {
-        private int velocidadNatacion;
-        private bool comunicacionMarina;
 
-        public int VelocidadNatacion { get => velocidadNatacion; set => velocidadNatacion = value; }
-        public bool ComunicacionMarina { get => comunicacionMarina; set => comunicacionMarina = value; }
+        public int Velocidad { get; set; }
+        public bool BooleanoHeroe { get; set; }
 
         /// <summary>
         /// Constructor con todos los datos pasados por parametro
         /// </summary>
         public Acuatico(int velocidadNatacion, bool comunicacionMarina, string nombre, EPoderes poder, int nivelDePoder) : this(nombre, poder, nivelDePoder)
         {
-            this.comunicacionMarina = comunicacionMarina;
-            this.velocidadNatacion = velocidadNatacion;
+            this.BooleanoHeroe = comunicacionMarina;
+            this.Velocidad = velocidadNatacion;
         }
         /// <summary>
         /// Constructor con solo un dato pasado por parametro
         /// </summary>
         public Acuatico(int velocidadNatacion, string nombre, EPoderes poder, int nivelDePoder) : this(nombre, poder, nivelDePoder)
         {
-            this.velocidadNatacion = velocidadNatacion;
+            this.Velocidad = velocidadNatacion;
         }
         /// <summary>
         /// Constructor inicializando solo con los parametros base
         /// </summary>
         public Acuatico(string nombre, EPoderes poder, int nivelDePoder) : base(nombre, poder, nivelDePoder)
         {
-            this.velocidadNatacion = 0;
-            this.comunicacionMarina = false;
+            this.Velocidad = 0;
+            this.BooleanoHeroe = false;
         }
         /// <summary>
         /// Calculacion de poder a partir de la velocidad y poder base
@@ -45,7 +43,7 @@ namespace Entidades
         {
             int poderTotal;
 
-            poderTotal = this.velocidadNatacion + nivelDePoder;
+            poderTotal = this.Velocidad + nivelDePoder;
 
             return poderTotal;
         }
@@ -57,7 +55,7 @@ namespace Entidades
         {
             string descripcionComunicacion = "";
 
-            if (this.comunicacionMarina == true)
+            if (this.BooleanoHeroe == true)
             {
                 descripcionComunicacion = "con habilidad de comunicación marina";
             }
@@ -66,7 +64,7 @@ namespace Entidades
                 descripcionComunicacion = "sin habilidad de comunicación marina";
             }
 
-            return $"¡Soy {nombre}, un héroe acuático con una velocidad de natación de {this.velocidadNatacion} y {descripcionComunicacion}!";
+            return $"¡Soy {nombre}, un héroe acuático con una velocidad de natación de {this.Velocidad} y {descripcionComunicacion}!";
         }
 
         public override string ToString()
@@ -96,8 +94,8 @@ namespace Entidades
             bool mismoNombre = nombre == otroAcuatico.nombre;
             bool mismoPoder = poder == otroAcuatico.poder;
             bool mismoNivelDePoder = nivelDePoder == otroAcuatico.nivelDePoder;
-            bool mismaVelocidadNatacion = velocidadNatacion == otroAcuatico.velocidadNatacion;
-            bool mismaComunicacionMarina = comunicacionMarina == otroAcuatico.comunicacionMarina;
+            bool mismaVelocidadNatacion = Velocidad == otroAcuatico.Velocidad;
+            bool mismaComunicacionMarina = BooleanoHeroe == otroAcuatico.BooleanoHeroe;
 
             
             if (mismoNombre && mismoPoder && mismoNivelDePoder && mismaVelocidadNatacion && mismaComunicacionMarina)

@@ -61,7 +61,7 @@ namespace Entidades.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=localhost\SQLEXPRESS;Initial Catalog=heroes;Integrated Security=True.
+        ///   Looks up a localized string similar to Data Source=localhost\SQLEXPRESS;Initial Catalog=heroes;Integrated Security=True;Trust Server Certificate=True.
         /// </summary>
         internal static string conexionProperties {
             get {

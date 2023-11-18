@@ -37,6 +37,7 @@
             statusFecha = new ToolStripStatusLabel();
             statusStrip1 = new StatusStrip();
             statusConectado = new ToolStripStatusLabel();
+            conexionBDTxt = new ToolStripStatusLabel();
             label1 = new Label();
             toolStrip1 = new ToolStrip();
             btnCargar = new ToolStripButton();
@@ -106,7 +107,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { statusNombre, statusConectado, statusFecha });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { statusNombre, statusConectado, statusFecha, conexionBDTxt });
             statusStrip1.Location = new Point(0, 428);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(800, 22);
@@ -118,6 +119,13 @@
             statusConectado.Name = "statusConectado";
             statusConectado.Size = new Size(73, 17);
             statusConectado.Text = "(Conectado)";
+            // 
+            // conexionBDTxt
+            // 
+            conexionBDTxt.Margin = new Padding(350, 3, 0, 2);
+            conexionBDTxt.Name = "conexionBDTxt";
+            conexionBDTxt.Size = new Size(73, 17);
+            conexionBDTxt.Text = "ConexionBD";
             // 
             // label1
             // 
@@ -283,5 +291,6 @@
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem nombreOrdenar;
         private ToolStripMenuItem nivelDePoderOrdenar;
+        private ToolStripStatusLabel conexionBDTxt;
     }
 }

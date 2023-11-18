@@ -24,7 +24,27 @@ namespace Entidades
 
         public bool PruebaConexion()
         {
-            return false;
+            bool retorno = false;
+            try
+            {
+                this.conexion.Open();
+                retorno = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (this.conexion.State == System.Data.ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+
+            }
+            return retorno;
         }
+
+        
     }
 }

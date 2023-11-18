@@ -43,6 +43,7 @@ namespace Login
             ActualizarBotones(this.perfilUsuario);
             LogConexion();
             ActualizarConexiones();
+            ConectarBaseDeDatos();
             this.statusNombre.Text = this.nombreUsuario;
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
@@ -122,11 +123,27 @@ namespace Login
 
         }
 
+        private void ConectarBaseDeDatos()
+        {
+            AccesoDatos ado = new AccesoDatos();
+
+            if (ado.PruebaConexion())
+            {
+                this.conexionBDTxt.Text = "Conexion a base de datos: (Conectada)";
+            }
+            else
+            {
+                this.conexionBDTxt.Text = "Conexion a base de datos: (Sin conexion)";
+            }
+        }
+
         /// <summary>
         /// Se escribe un log con los datos del usuario en modo append para guardar el historial
         /// </summary>
         private void LogConexion()
         {
+
+
             string nombreArchivo = "../../../../usuarios.log";
 
             using (StreamWriter writer = new StreamWriter(nombreArchivo, true))
@@ -223,7 +240,7 @@ namespace Login
                 lstNombres.Items.Add(heroe.Nombre);
             }
         }
-        
+
         /// <summary>
         /// Encargado de mostrar la descripcion de cada heroe cuando se selecciona su nombre
         /// </summary>

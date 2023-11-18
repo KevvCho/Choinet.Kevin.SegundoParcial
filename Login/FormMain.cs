@@ -13,6 +13,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.Json;
 using System.Globalization;
 using System.Drawing.Imaging;
+using System.Data.SqlClient;
+using System.Drawing.Text;
 
 namespace Login
 {
@@ -45,7 +47,7 @@ namespace Login
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
 
-        
+
 
         /// <summary>
         /// Se recorre la lista de heroes y se agregan los nombres a la lista
@@ -58,8 +60,8 @@ namespace Login
 
             // Lista hardcodeada
             ColeccionHeroes<Heroe> coleccion = ObtenerColeccionHeroes();
-            
-            
+
+
 
             lstNombres.Items.Clear();
 
@@ -210,16 +212,18 @@ namespace Login
         }
 
         /// <summary>
-        /// Se encarga de cambiar los nombres en el visor si hubo un cambio en la lista
+        /// Se encarga de cambiar los nombres en el visor si hubo un cambio en la lista y cargar en base de datos
         /// </summary>
         private void ActualizarItems()
         {
+            //ConectarABaseDeDatos();
             lstNombres.Items.Clear();
             foreach (Heroe heroe in coleccion)
             {
                 lstNombres.Items.Add(heroe.Nombre);
             }
         }
+        
         /// <summary>
         /// Encargado de mostrar la descripcion de cada heroe cuando se selecciona su nombre
         /// </summary>

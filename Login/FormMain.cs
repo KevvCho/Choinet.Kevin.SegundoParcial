@@ -43,7 +43,7 @@ namespace Login
             ActualizarBotones(this.perfilUsuario);
             LogConexion();
             ActualizarConexiones();
-            ConectarBaseDeDatos();
+            
             this.statusNombre.Text = this.nombreUsuario;
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
@@ -89,6 +89,7 @@ namespace Login
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true;
+                    ConectarBaseDeDatos();
                 }
                 else
                 {
@@ -129,7 +130,9 @@ namespace Login
 
             if (ado.PruebaConexion())
             {
+                MessageBox.Show($"{ado.AgregarDato(coleccion)}");
                 this.conexionBDTxt.Text = "Conexion a base de datos: (Conectada)";
+                
             }
             else
             {

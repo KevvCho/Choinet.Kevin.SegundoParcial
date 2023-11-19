@@ -45,7 +45,7 @@ namespace Login
             ActualizarBotones(this.perfilUsuario);
             LogConexion();
             ActualizarConexiones();
-            
+
             this.statusNombre.Text = this.nombreUsuario;
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
@@ -116,12 +116,16 @@ namespace Login
                     this.btnAgregar.Enabled = false;
                     this.btnEditar.Enabled = false;
                     this.btnEliminar.Enabled = false;
+                    this.btnGuardar.Enabled = false;
+                    this.btnCargar.Enabled = false;
                 }
                 else
                 {
                     this.btnAgregar.Enabled = true;
                     this.btnEditar.Enabled = true;
                     this.btnEliminar.Enabled = true;
+                    this.btnGuardar.Enabled = true;
+                    this.btnCargar.Enabled = true;
                 }
             }
 
@@ -336,7 +340,7 @@ namespace Login
 
                 if (nuevoHeroe != null && coleccion != nuevoHeroe)
                 {
-                    if(ado.AgregarHeroe(nuevoHeroe))
+                    if (ado.AgregarHeroeBD(nuevoHeroe))
                     {
                         coleccion += nuevoHeroe;
                         ActualizarItems();
@@ -374,6 +378,15 @@ namespace Login
 
                     if (!string.IsNullOrEmpty(elementoForm.Nombre) && elementoForm.NivelPoder != null)
                     {
+                        bool rtn = ado.EditarHeroeBD(heroe.Nombre, elementoForm.Nombre, elementoForm.PoderSeleccionado.ToString(), int.Parse(elementoForm.NivelPoder), int.Parse(elementoForm.Velocidad));
+                        if (rtn)
+                        {
+                            MessageBox.Show("Editado!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error");
+                        }
                         heroe.Nombre = elementoForm.Nombre;
                         heroe.Poder = elementoForm.PoderSeleccionado;
                         heroe.NivelDePoder = int.Parse(elementoForm.NivelPoder);
@@ -411,7 +424,7 @@ namespace Login
 
             if (coleccion.ContieneHeroe(heroeSeleccionado))
             {
-                if(ado.EliminarHeroeBD(heroeSeleccionado.Nombre, heroeSeleccionado.Poder.ToString(), heroeSeleccionado.NivelDePoder))
+                if (ado.EliminarHeroeBD(heroeSeleccionado.Nombre, heroeSeleccionado.Poder.ToString(), heroeSeleccionado.NivelDePoder))
                 {
                     coleccion -= heroeSeleccionado;
                     ActualizarItems();
@@ -528,7 +541,7 @@ namespace Login
                     }
                 }
             }
-
+            //ado.AgregarColeccion(coleccion);
             this.coleccion = coleccion;
             ActualizarItems();
         }

@@ -148,7 +148,6 @@
             // btnCargar
             // 
             btnCargar.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnCargar.Enabled = false;
             btnCargar.Image = (Image)resources.GetObject("btnCargar.Image");
             btnCargar.ImageTransparentColor = Color.Magenta;
             btnCargar.Name = "btnCargar";
@@ -159,7 +158,6 @@
             // btnGuardar
             // 
             btnGuardar.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnGuardar.Enabled = false;
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
             btnGuardar.ImageTransparentColor = Color.Magenta;
             btnGuardar.Name = "btnGuardar";

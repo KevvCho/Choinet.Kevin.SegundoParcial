@@ -48,7 +48,7 @@ namespace Entidades
         }
 
         //Agrega todos los heroes en una coleccion
-        public string AgregarDato(ColeccionHeroes<Heroe> coleccion)
+        public string AgregarColeccion(ColeccionHeroes<Heroe> coleccion)
         {
             string retorno = "";
             try
@@ -124,7 +124,7 @@ namespace Entidades
         }
 
         //Agrega heroe en particular
-        public bool AgregarHeroe(Heroe heroe)
+        public bool AgregarHeroeBD(Heroe heroe)
         {
             bool retorno = false;
             try
@@ -260,6 +260,41 @@ namespace Entidades
                 this.comando.Parameters.AddWithValue("@nombre", nombre);
                 this.comando.Parameters.AddWithValue("@poder", poder);
                 this.comando.Parameters.AddWithValue("@nivelPoder", nivelPoder);
+
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                    retorno = true;
+                }
+                else
+                {
+                    retorno = false;
+                }
+
+                this.conexion.Close();
+            }
+            catch (Exception e)
+            {
+                retorno = false;
+            }
+
+            return retorno;
+        }
+
+        public bool EditarHeroeBD(string nombreOriginal, string nuevoNombre, string poder, int nivelPoder, int velocidad)
+        {
+            bool retorno = false;
+            try
+            {
+                this.conexion.Open();
+
+                this.comando = new SqlCommand("UPDATE tabla_heroes SET nombre = @nuevoNombre, poder = @poder, nivelPoder = @nivelPoder, velocidad = @velocidad WHERE CAST(nombre AS nvarchar(MAX)) = @nombreOriginal", this.conexion);
+                this.comando.Parameters.AddWithValue("@nuevoNombre", nuevoNombre);
+                this.comando.Parameters.AddWithValue("@poder", poder);
+                this.comando.Parameters.AddWithValue("@nivelPoder", nivelPoder);
+                this.comando.Parameters.AddWithValue("@velocidad", velocidad);
+                this.comando.Parameters.AddWithValue("@nombreOriginal", nombreOriginal);
 
                 int filasAfectadas = this.comando.ExecuteNonQuery();
 

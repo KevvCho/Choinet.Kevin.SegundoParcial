@@ -29,6 +29,8 @@ namespace Login
 
         ColeccionHeroes<Heroe> coleccion = new ColeccionHeroes<Heroe>();
 
+        AccesoDatos ado = new AccesoDatos();
+
         private bool ordenAscendente = false;
 
         /// <summary>
@@ -43,7 +45,7 @@ namespace Login
             ActualizarBotones(this.perfilUsuario);
             LogConexion();
             ActualizarConexiones();
-            
+            ConectarBaseDeDatos();
             this.statusNombre.Text = this.nombreUsuario;
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
@@ -89,7 +91,6 @@ namespace Login
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true;
-                    ConectarBaseDeDatos();
                 }
                 else
                 {
@@ -126,13 +127,10 @@ namespace Login
 
         private void ConectarBaseDeDatos()
         {
-            AccesoDatos ado = new AccesoDatos();
-
             if (ado.PruebaConexion())
             {
-                MessageBox.Show($"{ado.AgregarDato(coleccion)}");
+                //MessageBox.Show($"{ado.AgregarDato(coleccion)}");
                 this.conexionBDTxt.Text = "Conexion a base de datos: (Conectada)";
-                
             }
             else
             {
@@ -332,8 +330,15 @@ namespace Login
 
                 if (nuevoHeroe != null && coleccion != nuevoHeroe)
                 {
-                    coleccion += nuevoHeroe;
-                    ActualizarItems();
+                    if(ado.AgregarHeroe(nuevoHeroe))
+                    {
+                        coleccion += nuevoHeroe;
+                        ActualizarItems();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error al agregar el heroe a la lista", "Error");
+                    }
                 }
                 else
                 {

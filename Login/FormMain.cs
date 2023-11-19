@@ -541,7 +541,7 @@ namespace Login
                     }
                 }
             }
-            //ado.AgregarColeccion(coleccion);
+            ado.AgregarColeccion(coleccion);
             this.coleccion = coleccion;
             ActualizarItems();
         }

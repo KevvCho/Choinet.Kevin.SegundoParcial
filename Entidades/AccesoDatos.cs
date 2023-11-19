@@ -248,5 +248,38 @@ namespace Entidades
                 return coleccion;
             }
         }
+
+        public bool EliminarHeroeBD(string nombre, string poder, int nivelPoder)
+        {
+            bool retorno = false;
+            try
+            {
+                this.conexion.Open();
+
+                this.comando = new SqlCommand("DELETE FROM tabla_heroes WHERE CAST(nombre AS nvarchar(MAX)) = @nombre", this.conexion);
+                this.comando.Parameters.AddWithValue("@nombre", nombre);
+                this.comando.Parameters.AddWithValue("@poder", poder);
+                this.comando.Parameters.AddWithValue("@nivelPoder", nivelPoder);
+
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                    retorno = true;
+                }
+                else
+                {
+                    retorno = false;
+                }
+
+                this.conexion.Close();
+            }
+            catch (Exception e)
+            {
+                retorno = false;
+            }
+
+            return retorno;
+        }
     }
 }

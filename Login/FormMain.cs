@@ -409,8 +409,23 @@ namespace Login
         {
             Heroe heroeSeleccionado = coleccion.ObtenerHeroe((string)lstNombres.SelectedItem);
 
-            coleccion -= heroeSeleccionado;
-            ActualizarItems();
+            if (coleccion.ContieneHeroe(heroeSeleccionado))
+            {
+                if(ado.EliminarHeroeBD(heroeSeleccionado.Nombre, heroeSeleccionado.Poder.ToString(), heroeSeleccionado.NivelDePoder))
+                {
+                    coleccion -= heroeSeleccionado;
+                    ActualizarItems();
+                    MessageBox.Show("Heroe eliminado");
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar de la base de datos");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error al eliminar el heroe de la lista");
+            }
 
         }
         /// <summary>

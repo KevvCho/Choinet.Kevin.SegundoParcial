@@ -45,7 +45,7 @@ namespace Login
             ActualizarBotones(this.perfilUsuario);
             LogConexion();
             ActualizarConexiones();
-            ConectarBaseDeDatos();
+            
             this.statusNombre.Text = this.nombreUsuario;
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
@@ -60,11 +60,13 @@ namespace Login
             InitializeComponent();
             this.FormClosing += MainForm_FormClosing;
 
+            if (ConectarBaseDeDatos())
+            {
+                coleccion = ado.LeerDatosBD();
+            }
 
             // Lista hardcodeada
-            ColeccionHeroes<Heroe> coleccion = ObtenerColeccionHeroes();
-
-
+            //ColeccionHeroes<Heroe> coleccion = ObtenerColeccionHeroes();
 
             lstNombres.Items.Clear();
 
@@ -125,17 +127,21 @@ namespace Login
 
         }
 
-        private void ConectarBaseDeDatos()
+        private bool ConectarBaseDeDatos()
         {
+            bool rtn = false;
+
             if (ado.PruebaConexion())
             {
-                //MessageBox.Show($"{ado.AgregarDato(coleccion)}");
                 this.conexionBDTxt.Text = "Conexion a base de datos: (Conectada)";
+                rtn = true;
             }
             else
             {
                 this.conexionBDTxt.Text = "Conexion a base de datos: (Sin conexion)";
             }
+
+            return rtn;
         }
 
         /// <summary>

@@ -194,6 +194,59 @@ namespace Entidades
             return retorno;
         }
 
-        
+        public ColeccionHeroes<Heroe> LeerDatosBD()
+        {
+            ColeccionHeroes<Heroe> coleccion = new ColeccionHeroes<Heroe>();
+
+            try
+            {
+                this.conexion.Open();
+
+                SqlCommand comando = new SqlCommand("SELECT tipo, velocidad, CAST(habilidadBool AS bit) AS habilidad, nombre, poder, nivelPoder FROM tabla_heroes", this.conexion);
+                SqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string tipo = reader.GetString(0);
+                    int velocidad = reader.GetInt32(1);
+                    bool habilidadBool = reader.GetBoolean(2);
+                    string nombre = reader.GetString(3);
+                    string poder = reader.GetString(4);
+                    int nivelPoder = reader.GetInt32(5);
+
+                    EPoderes poderEnum = (EPoderes)Enum.Parse(typeof(EPoderes), poder, ignoreCase: true);
+
+                    Heroe nuevoHeroe = null;
+
+                    if (tipo == "Acuatico")
+                    {
+                        nuevoHeroe = new Acuatico(velocidad, habilidadBool, nombre, poderEnum, nivelPoder);
+                    }
+                    else if (tipo == "Aereo")
+                    {
+                        nuevoHeroe = new Aereo(velocidad, habilidadBool, nombre, poderEnum, nivelPoder);
+                    }
+                    else if (tipo == "Terrestre")
+                    {
+                        nuevoHeroe = new Terrestre(velocidad, habilidadBool, nombre, poderEnum, nivelPoder);
+                    }
+
+                    if (nuevoHeroe != null)
+                    {
+                        coleccion.AgregarHeroe(nuevoHeroe);
+                    }
+
+                }
+
+                reader.Close();
+                this.conexion.Close();
+                return coleccion;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al leer los datos: " + e.ToString());
+                return coleccion;
+            }
+        }
     }
 }

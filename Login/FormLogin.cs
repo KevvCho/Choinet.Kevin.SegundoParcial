@@ -11,11 +11,20 @@ namespace Login
         public FormLogin()
         {
             InitializeComponent();
+            correoTxtBox.KeyDown += TextBox_KeyDown;
+            contraseñaTxtBox.KeyDown += TextBox_KeyDown;
         }
         /// <summary>
         /// Obtiene un .json con datos de usuario y clave los cuales deserializa en una lista
         /// luego y comprueba si los datos ingresados coinciden con el archivo iterando por los usuarios
         /// </summary>
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnIngresar_Click(sender, e);
+            }
+        }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
 
@@ -47,11 +56,11 @@ namespace Login
                     }
 
                 }
-                    if (!loginCorrecto)
-                    {
-                        MessageBox.Show("Login incorrecto");
-                    }
-                
+                if (!loginCorrecto)
+                {
+                    MessageBox.Show("Login incorrecto");
+                }
+
             }
             catch (Exception ex)
             {

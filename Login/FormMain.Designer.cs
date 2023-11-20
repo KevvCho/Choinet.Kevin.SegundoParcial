@@ -258,6 +258,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Location = new Point(200, 1200);
             Name = "FormMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Administracion de datos";
             FormClosing += MainForm_FormClosing;
             statusStrip1.ResumeLayout(false);

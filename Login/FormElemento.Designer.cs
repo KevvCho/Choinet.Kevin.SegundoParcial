@@ -189,6 +189,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormElemento";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Elemento";
             ResumeLayout(false);
             PerformLayout();

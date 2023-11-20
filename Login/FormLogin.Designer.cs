@@ -92,6 +92,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Location = new Point(200, 1200);
             Name = "FormLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ResumeLayout(false);
             PerformLayout();

@@ -47,6 +47,28 @@ namespace Entidades
             return retorno;
         }
 
+        public string BorrarDatosTabla()
+        {
+            string retorno = "";
+            try
+            {
+                this.conexion.Open();
+
+                this.comando = new SqlCommand("DELETE FROM tabla_heroes", this.conexion);
+                this.comando.ExecuteNonQuery();
+
+                retorno = "Datos borrados correctamente.";
+
+                this.conexion.Close();
+            }
+            catch (Exception e)
+            {
+                retorno = e.ToString();
+            }
+
+            return retorno;
+        }
+
         //Agrega todos los heroes en una coleccion
         public string AgregarColeccion(ColeccionHeroes<Heroe> coleccion)
         {
@@ -54,10 +76,7 @@ namespace Entidades
             try
             {
                 this.conexion.Open();
-
-                // Borrar todos los datos de la tabla
-                this.comando = new SqlCommand("DELETE FROM tabla_heroes", this.conexion);
-                this.comando.ExecuteNonQuery();
+                BorrarDatosTabla();
 
                 foreach (Heroe heroe in coleccion)
                 {

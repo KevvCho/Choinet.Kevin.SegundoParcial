@@ -118,7 +118,7 @@ namespace Entidades
         /// </summary>
         public static implicit operator string(Heroe heroe)
         {
-            return heroe.nombre;
+            return heroe?.nombre;
         }
     }
 }

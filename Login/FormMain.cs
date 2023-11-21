@@ -121,6 +121,7 @@ namespace Login
                 }
                 else
                 {
+                    this.eliminarListaBtn.Enabled = true;
                     this.btnAgregar.Enabled = true;
                     this.btnEditar.Enabled = true;
                     this.btnEliminar.Enabled = true;
@@ -422,22 +423,29 @@ namespace Login
         {
             Heroe heroeSeleccionado = coleccion.ObtenerHeroe((string)lstNombres.SelectedItem);
 
-            if (coleccion.ContieneHeroe(heroeSeleccionado))
-            {
-                if (ado.EliminarHeroeBD(heroeSeleccionado.Nombre, heroeSeleccionado.Poder.ToString(), heroeSeleccionado.NivelDePoder))
+            if (heroeSeleccionado != null)
+            { 
+                if (coleccion.ContieneHeroe(heroeSeleccionado))
                 {
-                    coleccion -= heroeSeleccionado;
-                    ActualizarItems();
-                    MessageBox.Show("Heroe eliminado");
+                    if (ado.EliminarHeroeBD(heroeSeleccionado.Nombre, heroeSeleccionado.Poder.ToString(), heroeSeleccionado.NivelDePoder))
+                    {
+                        coleccion -= heroeSeleccionado;
+                        ActualizarItems();
+                        MessageBox.Show("Héroe eliminado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar de la base de datos");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar de la base de datos");
+                    MessageBox.Show("Error al eliminar el héroe de la lista");
                 }
             }
             else
             {
-                MessageBox.Show("Error al eliminar el heroe de la lista");
+                MessageBox.Show("La lista está vacía. No hay elementos para eliminar.");
             }
 
         }
@@ -636,6 +644,14 @@ namespace Login
             {
                 this.ordenAscendente = true;
             }
+        }
+
+        private void eliminarListaBtn_Click(object sender, EventArgs e)
+        {
+            ColeccionHeroes<Heroe> coleccion = new ColeccionHeroes<Heroe>();
+            this.coleccion = coleccion;
+            ActualizarItems();
+            MessageBox.Show($"{ado.BorrarDatosTabla()}");
         }
     }
 }

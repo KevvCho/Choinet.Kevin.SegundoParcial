@@ -45,6 +45,7 @@
             toolStripDropDownButton1 = new ToolStripDropDownButton();
             nombreOrdenar = new ToolStripMenuItem();
             nivelDePoderOrdenar = new ToolStripMenuItem();
+            eliminarListaBtn = new ToolStripButton();
             lstConexiones = new ListView();
             label2 = new Label();
             lstNombres = new ListBox();
@@ -138,7 +139,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnCargar, btnGuardar, toolStripDropDownButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnCargar, btnGuardar, toolStripDropDownButton1, eliminarListaBtn });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 25);
@@ -190,6 +191,17 @@
             nivelDePoderOrdenar.Size = new Size(178, 22);
             nivelDePoderOrdenar.Text = "Nivel de poder base";
             nivelDePoderOrdenar.Click += nivelDePoderOrdenar_Click;
+            // 
+            // eliminarListaBtn
+            // 
+            eliminarListaBtn.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            eliminarListaBtn.Enabled = false;
+            eliminarListaBtn.Image = (Image)resources.GetObject("eliminarListaBtn.Image");
+            eliminarListaBtn.ImageTransparentColor = Color.Magenta;
+            eliminarListaBtn.Name = "eliminarListaBtn";
+            eliminarListaBtn.Size = new Size(78, 22);
+            eliminarListaBtn.Text = "Eliminar lista";
+            eliminarListaBtn.Click += eliminarListaBtn_Click;
             // 
             // lstConexiones
             // 
@@ -291,5 +303,6 @@
         private ToolStripMenuItem nombreOrdenar;
         private ToolStripMenuItem nivelDePoderOrdenar;
         private ToolStripStatusLabel conexionBDTxt;
+        private ToolStripButton eliminarListaBtn;
     }
 }

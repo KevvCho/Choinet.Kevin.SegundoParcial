@@ -15,14 +15,10 @@ namespace Entidades
         {
             heroes = new List<T>();
         }
-        /// <summary>
-        /// Utilizacion de IEnumerator para listas genericas
-        /// </summary>
-        /// <returns>Permite a la lista generica ser recorrida en un bucle foreach</returns>
-        public IEnumerator<T> GetEnumerator()
-        {
-            return heroes.GetEnumerator();
-        }
+
+        public event EventHandler<T> HeroeAgregado;
+        public event EventHandler<T> HeroeEliminado;
+
 
         /// <summary>
         /// Se asegura de saber si el heroe se encuentra en la lista y lo agrega
@@ -32,7 +28,14 @@ namespace Entidades
             if (!heroes.Contains(heroe))
             {
                 heroes.Add(heroe);
+
+                OnHeroeAgregado(heroe);
             }
+        }
+
+        protected virtual void OnHeroeAgregado(T heroe)
+        {
+            HeroeAgregado?.Invoke(this, heroe);
         }
         /// <summary>
         /// Se verifica si el heroe esta en la lista y se elimina
@@ -42,8 +45,25 @@ namespace Entidades
             if (heroes.Contains(heroe))
             {
                 heroes.Remove(heroe);
-            }    
+
+                OnHeroeEliminado(heroe);
+            }
         }
+
+        protected virtual void OnHeroeEliminado(T heroe)
+        {
+            HeroeEliminado?.Invoke(this, heroe);
+        }
+
+        /// <summary>
+        /// Utilizacion de IEnumerator para listas genericas
+        /// </summary>
+        /// <returns>Permite a la lista generica ser recorrida en un bucle foreach</returns>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return heroes.GetEnumerator();
+        }
+
         /// <summary>
         /// A diferencia de Contains, se asegura de comprobar a partir del nombre en vez de por objeto tipo Heroe
         /// </summary>

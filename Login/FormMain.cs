@@ -309,11 +309,10 @@ namespace Login
         /// Se llama a otro form para tomar los datos y luego de ser pasados se crea un nuevo heroe
         /// segun el tipo siempre y cuando no se encuentre ya en la lista
         /// </summary>
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
             FormElemento elementoForm = new FormElemento();
             elementoForm.ShowDialog();
-
 
             if (!string.IsNullOrEmpty(elementoForm.Nombre) && elementoForm.NivelPoder != null)
             {
@@ -341,21 +340,37 @@ namespace Login
 
                 if (nuevoHeroe != null && coleccion != nuevoHeroe)
                 {
-                    if (ado.AgregarHeroeBD(nuevoHeroe))
+                    bool agregadoBD = false;
+                    bool agregadoColeccion = false;
+
+                    
+                    Task agregarBDTask = Task.Run(() =>
+                    {
+                        agregadoBD = ado.AgregarHeroeBD(nuevoHeroe);
+                    });
+
+                    Task agregarColeccionTask = Task.Run(() =>
                     {
                         coleccion += nuevoHeroe;
+                        agregadoColeccion = true;
+                    });
+
+                    
+                    await Task.WhenAll(agregarBDTask, agregarColeccionTask);
+
+                    if (agregadoBD && agregadoColeccion)
+                    {
                         ActualizarItems();
                     }
                     else
                     {
-                        MessageBox.Show("Ocurrio un error al agregar el heroe a la lista", "Error");
+                        MessageBox.Show("Ocurrió un error al agregar el héroe a la lista o a la base de datos", "Error");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ese heroe ya se encuentra en la lista", "Error");
+                    MessageBox.Show("Ese héroe ya se encuentra en la lista", "Error");
                 }
-
             }
         }
         /// <summary>
@@ -445,7 +460,7 @@ namespace Login
             }
             else
             {
-                MessageBox.Show("La lista está vacía. No hay elementos para eliminar.");
+                MessageBox.Show("No hay elementos para eliminar.");
             }
 
         }
@@ -540,7 +555,7 @@ namespace Login
                                 coleccion.AgregarHeroe(nuevoHeroe);
                             }
                         }
-
+                        ado.BorrarDatosTabla();
                         MessageBox.Show("Datos cargados exitosamente desde el archivo JSON.");
                     }
                     catch (Exception ex)

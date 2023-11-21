@@ -76,7 +76,6 @@ namespace Entidades
             try
             {
                 this.conexion.Open();
-                BorrarDatosTabla();
 
                 foreach (Heroe heroe in coleccion)
                 {

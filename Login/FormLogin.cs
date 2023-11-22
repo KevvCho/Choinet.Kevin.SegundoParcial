@@ -15,8 +15,7 @@ namespace Login
             contraseñaTxtBox.KeyDown += TextBox_KeyDown;
         }
         /// <summary>
-        /// Obtiene un .json con datos de usuario y clave los cuales deserializa en una lista
-        /// luego y comprueba si los datos ingresados coinciden con el archivo iterando por los usuarios
+        /// Permite apretar la tecla enter para acceder en vez de apretar el boton de ingresar
         /// </summary>
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -25,6 +24,10 @@ namespace Login
                 btnIngresar_Click(sender, e);
             }
         }
+        /// <summary>
+        /// Obtiene un .json con datos de usuario y clave los cuales deserializa en una lista
+        /// luego y comprueba si los datos ingresados coinciden con el archivo iterando por los usuarios
+        /// </summary>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
 
@@ -70,7 +73,9 @@ namespace Login
 
 
         }
-
+        /// <summary>
+        /// Boton para visibilizar la constraseña escrita
+        /// </summary>
         private void contraseñaBtn_Click(object sender, EventArgs e)
         {
             contraseñaTxtBox.UseSystemPasswordChar = !contraseñaTxtBox.UseSystemPasswordChar;

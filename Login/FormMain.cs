@@ -98,7 +98,10 @@ namespace Login
                 }
             }
         }
-
+        /// <summary>
+        /// Realiza una actualizacion de los botones de agregar, editar y eliminar dependiendo del perfil
+        /// </summary>
+        /// <param name="perfil">Perfil asociado al correo</param>
         public void ActualizarBotones(string perfil)
         {
 
@@ -128,7 +131,10 @@ namespace Login
             }
 
         }
-
+        /// <summary>
+        /// Realiza una conexion a la base de datos para comprobar su existencia
+        /// </summary>
+        /// <returns>Retorna la verificacion del mismo</returns>
         private bool ConectarBaseDeDatos()
         {
             bool rtn = false;
@@ -646,7 +652,9 @@ namespace Login
                 this.ordenAscendente = true;
             }
         }
-
+        /// <summary>
+        /// Boton para eliminar la coleccion y datos en la base de datos
+        /// </summary>
         private void eliminarListaBtn_Click(object sender, EventArgs e)
         {
             ColeccionHeroes<Heroe> coleccion = new ColeccionHeroes<Heroe>();

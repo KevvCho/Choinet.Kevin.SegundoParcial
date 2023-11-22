@@ -25,7 +25,10 @@ namespace Entidades
         {
             this.conexion = new SqlConnection(AccesoDatos.cadena_conexion);
         }
-
+        /// <summary>
+        /// Realiza una comprobacion de la conexion a la base de datos
+        /// </summary>
+        /// <returns>Retorna el resultado de la misma</returns>
         public bool PruebaConexion()
         {
             bool retorno = false;
@@ -48,7 +51,10 @@ namespace Entidades
             }
             return retorno;
         }
-
+        /// <summary>
+        /// Se encarga de limpiar todos los datos en la tabla de SQL
+        /// </summary>
+        /// <returns>Retorna la verificacion de la operacion</returns>
         public string BorrarDatosTabla()
         {
             string retorno = "";
@@ -71,7 +77,10 @@ namespace Entidades
             return retorno;
         }
 
-        //Agrega todos los heroes en una coleccion
+        /// <summary>
+        /// Agrega todos los heroes dentro de una coleccion hacia la tabla de datos SQL
+        /// </summary>
+        /// <param name="coleccion">Coleccion de heroes para agregar</param>
         public void AgregarColeccion(ColeccionHeroes<Heroe> coleccion)
         {
             bool retorno = false;
@@ -150,7 +159,11 @@ namespace Entidades
             OperacionFallo?.Invoke(this, EventArgs.Empty);
         }
 
-        //Agrega heroe en particular
+        /// <summary>
+        /// Agrega solo un heroe junto a sus datos a la tabla
+        /// </summary>
+        /// <param name="heroe">Heroe a agregar</param>
+        /// <returns>Retorna una verificacion de la operacion</returns>
         public bool AgregarHeroeBD(Heroe heroe)
         {
             bool retorno = false;
@@ -229,7 +242,10 @@ namespace Entidades
 
             return retorno;
         }
-
+        /// <summary>
+        /// Lector de la tabla en la base de datos SQL
+        /// </summary>
+        /// <returns>Retorna la verificacion de la operacion</returns>
         public ColeccionHeroes<Heroe> LeerDatosBD()
         {
             ColeccionHeroes<Heroe> coleccion = new ColeccionHeroes<Heroe>();
@@ -284,7 +300,10 @@ namespace Entidades
                 return coleccion;
             }
         }
-
+        /// <summary>
+        /// Borra solo un heroe en la base de datos a partir de su nombre, poder y nivel de poder
+        /// </summary>
+        /// <returns>Retorna una verificacion de la eliminacion</returns>
         public bool EliminarHeroeBD(string nombre, string poder, int nivelPoder)
         {
             bool retorno = false;
@@ -326,7 +345,10 @@ namespace Entidades
 
             return retorno;
         }
-
+        /// <summary>
+        /// Toma los datos de un heroe y luego de verificar su existencia los edita por nuevos datos ingresados.
+        /// </summary>
+        /// <returns>Retorna una verificacion del proceso.</returns>
         public bool EditarHeroeBD(string nombreOriginal, string nuevoNombre, string poder, int nivelPoder, int velocidad)
         {
             bool retorno = false;

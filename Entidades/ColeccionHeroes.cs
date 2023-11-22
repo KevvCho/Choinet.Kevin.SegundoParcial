@@ -54,7 +54,10 @@ namespace Entidades
         {
             HeroeEliminado?.Invoke(this, heroe);
         }
-
+        /// <summary>
+        /// Suscripcion a los metodos de agregado y eliminado. Ambos se encargan de notificar la modificacion dentro
+        /// de la coleccion por consola.
+        /// </summary>
         public void SuscribirMetodos()
         {
             HeroeAgregado += (sender, heroe) => Console.WriteLine($"Se ha agregado un heroe a la colección.");

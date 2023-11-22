@@ -1,45 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Entidades.AccesoDatos">
+    <Position X="12.5" Y="0.5" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgECAAAAAAEkAIAAAAAAIEAAAAAACQAAEAAAAAAAE=</HashCode>
+      <FileName>AccesoDatos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Acuatico">
+    <Position X="0.5" Y="5" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAUgAAAAAQAAAACAIAACAAAAAAAAAA=</HashCode>
+      <FileName>Acuatico.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Entidades.Aereo">
+    <Position X="12.5" Y="5.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAUgAAAAAQAAAACAIAACAAAAAAAAAA=</HashCode>
+      <FileName>Aereo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Entidades.ColeccionHeroes&lt;T&gt;">
+    <Position X="18.5" Y="5.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAgQCBEBIAAAABAAQAEAAABAAAAAAAAAIYAAAAAAQiA=</HashCode>
+      <FileName>ColeccionHeroes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Entidades.Heroe">
-    <Position X="8.25" Y="2" Width="1.5" />
+    <Position X="8.25" Y="4.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAACUgAAAgAAAAAEAAIABCAAAAQAAAiE=</HashCode>
       <FileName>Heroe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entidades.Terrestre">
-    <Position X="6" Y="6" Width="1.5" />
+    <Position X="0.5" Y="1" Width="5.75" />
     <TypeIdentifier>
-      <HashCode>QAAAAEAAAAAAAAAUhAAAAAQAAAAAAIAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAUgAAAAAQAAAACAIAACAAAAAAAAAA=</HashCode>
       <FileName>Terrestre.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entidades.Acuatico">
-    <Position X="10.25" Y="2" Width="1.5" />
+  <Interface Name="Entidades.IHeroe">
+    <Position X="10" Y="1.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAAAAUgARAAAAAAEAAAIAACAAAAAAAAAA=</HashCode>
-      <FileName>Acuatico.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IHeroe.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Entidades.Aereo">
-    <Position X="6" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAUgAAAEAAAABBAAIAACAAAAAAAAAA=</HashCode>
-      <FileName>Aereo.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Entidades.ColeccionHeroes&lt;T&gt;">
-    <Position X="10.25" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgQCAEAIAAAABAAQAEAAAAAAAAAAAAAAYAAAAAAAiA=</HashCode>
-      <FileName>ColeccionHeroes.cs</FileName>
-    </TypeIdentifier>
-  </Class>
+  </Interface>
   <Enum Name="Entidades.EPoderes">
-    <Position X="8.25" Y="7" Width="1.5" />
+    <Position X="8.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAgAAAAAAAAAAAAgAAAIBAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EPoderes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Login.ETipoHeroe">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAQAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>ETipoHeroe.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

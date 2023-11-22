@@ -70,6 +70,11 @@ namespace Login
 
 
         }
+
+        private void contraseñaBtn_Click(object sender, EventArgs e)
+        {
+            contraseñaTxtBox.UseSystemPasswordChar = !contraseñaTxtBox.UseSystemPasswordChar;
+        }
     }
 
 

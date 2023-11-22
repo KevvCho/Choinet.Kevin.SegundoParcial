@@ -14,6 +14,7 @@ namespace Entidades
         public ColeccionHeroes()
         {
             heroes = new List<T>();
+            SuscribirMetodos();
         }
 
         public event EventHandler<T> HeroeAgregado;

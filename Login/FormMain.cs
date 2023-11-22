@@ -51,8 +51,6 @@ namespace Login
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
 
-
-
         /// <summary>
         /// Se recorre la lista de heroes y se agregan los nombres a la lista
         /// </summary>
@@ -66,8 +64,6 @@ namespace Login
                 coleccion = ado.LeerDatosBD();
             }
 
-            // Lista hardcodeada
-            //ColeccionHeroes<Heroe> coleccion = ObtenerColeccionHeroes();
 
             lstNombres.Items.Clear();
 
@@ -217,31 +213,6 @@ namespace Login
             }
         }
         /// <summary>
-        /// Lista de heroes hardcodeada para facil visualizacion del funcionamento del programa al entrar
-        /// </summary>
-        /// <returns>Retorna una lista con 2 heroes de cada tipo y diferentes datos</returns>
-        public ColeccionHeroes<Heroe> ObtenerColeccionHeroes()
-        {
-
-            Acuatico acuatico1 = new Acuatico(50, true, "Aquaman", EPoderes.Intangible, 200);
-            Acuatico acuatico2 = new Acuatico(60, false, "Namor", EPoderes.Invisibilidad, 180);
-            Terrestre terrestre1 = new Terrestre(50, false, "Flash", EPoderes.Telepatia, 200);
-            Terrestre terrestre2 = new Terrestre(60, true, "Hawkeye", EPoderes.Fuego, 100);
-            Aereo aereo1 = new Aereo(10, true, "Falcon", EPoderes.Intangible, 50);
-            Aereo aereo2 = new Aereo(20, false, "Superman", EPoderes.RayosX, 500);
-
-            coleccion += acuatico1;
-            coleccion += acuatico2;
-            coleccion += terrestre1;
-            coleccion += terrestre2;
-            coleccion += aereo1;
-            coleccion += aereo2;
-
-
-            return coleccion;
-        }
-
-        /// <summary>
         /// Se encarga de cambiar los nombres en el visor si hubo un cambio en la lista y cargar en base de datos
         /// </summary>
         private void ActualizarItems()
@@ -311,7 +282,7 @@ namespace Login
         /// segun el tipo siempre y cuando no se encuentre ya en la lista.
         /// Se agrega a la coleccion y a la base de datos de forma paralela.
         /// </summary>
-        private async void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             FormElemento elementoForm = new FormElemento();
             elementoForm.ShowDialog();
@@ -345,29 +316,31 @@ namespace Login
                     bool agregadoBD = false;
                     bool agregadoColeccion = false;
 
-                    
                     Task agregarBDTask = Task.Run(() =>
                     {
                         agregadoBD = ado.AgregarHeroeBD(nuevoHeroe);
                     });
 
-                    Task agregarColeccionTask = Task.Run(() =>
+                    Task agregarColeccionTask = agregarBDTask.ContinueWith(_ =>
                     {
-                        coleccion += nuevoHeroe;
-                        agregadoColeccion = true;
+                        if (agregadoBD)
+                        {
+                            coleccion += nuevoHeroe;
+                            agregadoColeccion = true;
+                        }
                     });
 
-                    
-                    await Task.WhenAll(agregarBDTask, agregarColeccionTask);
-
-                    if (agregadoBD && agregadoColeccion)
+                    agregarColeccionTask.ContinueWith(_ =>
                     {
-                        ActualizarItems();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocurrió un error al agregar el héroe a la lista o a la base de datos", "Error");
-                    }
+                        if (agregadoColeccion)
+                        {
+                            ActualizarItems();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocurrió un error al agregar el héroe a la lista o a la base de datos", "Error");
+                        }
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
                 else
                 {
@@ -486,7 +459,7 @@ namespace Login
 
                     try
                     {
-                        string jsonString = File.ReadAllText(path);
+                        string jsonString = Task.Run(() => File.ReadAllText(path)).Result;
 
                         List<Dictionary<string, object>> heroesData = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(jsonString);
 

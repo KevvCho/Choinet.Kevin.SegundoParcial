@@ -72,9 +72,9 @@ namespace Entidades
         }
 
         //Agrega todos los heroes en una coleccion
-        public string AgregarColeccion(ColeccionHeroes<Heroe> coleccion)
+        public void AgregarColeccion(ColeccionHeroes<Heroe> coleccion)
         {
-            string retorno = "";
+            bool retorno = false;
             try
             {
                 this.conexion.Open();
@@ -113,24 +113,31 @@ namespace Entidades
 
                     if (filasAfectadas > 0)
                     { 
-                        retorno = "Datos agregados correctamente.";
+                        retorno = true;
                     }
                     else
                     {
-                        retorno = "Error al agregar los datos.";
+                        retorno = false;
                         break;
                     }
                 }
-                OnOperacionCompletada();
+                
                 this.conexion.Close();
             }
             catch (Exception e)
             {
                 OnOperacionFallo();
-                retorno = e.ToString();
             }
 
-            return retorno;
+            if (retorno)
+            {
+                OnOperacionCompletada();
+            }
+            else
+            {
+                OnOperacionFallo();
+            }
+
         }
 
         protected virtual void OnOperacionCompletada()
@@ -209,6 +216,15 @@ namespace Entidades
             catch (Exception e)
             {
                 retorno = false;
+            }
+
+            if (retorno)
+            {
+                OnOperacionCompletada();
+            }
+            else
+            {
+                OnOperacionFallo();
             }
 
             return retorno;
@@ -299,6 +315,15 @@ namespace Entidades
                 retorno = false;
             }
 
+            if (retorno)
+            {
+                OnOperacionCompletada();
+            }
+            else
+            {
+                OnOperacionFallo();
+            }
+
             return retorno;
         }
 
@@ -332,6 +357,15 @@ namespace Entidades
             catch (Exception e)
             {
                 retorno = false;
+            }
+
+            if (retorno)
+            {
+                OnOperacionCompletada();
+            }
+            else
+            {
+                OnOperacionFallo();
             }
 
             return retorno;

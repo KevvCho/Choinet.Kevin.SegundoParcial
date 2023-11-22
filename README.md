@@ -39,7 +39,7 @@ Al momento de modificar un heroe se abrira una ventana parecida a la de agregar 
 #### Eliminar
 
 La aplicacion cuenta con una eliminacion inmediata del heroe seleccionado la cual se ve reflejada tanto graficamente como en la base de datos.
-![main3](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/main3.gif)
+![main3](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/main4.gif)
 
 #### Otros
 

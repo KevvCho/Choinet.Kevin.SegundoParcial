@@ -20,23 +20,23 @@ Es posible guardar y cargar una lista ya hecha como tambien eliminarla por compl
 
 El programa cuenta con un login basado en los datos de usuario previamente proveidos y los cuales se encuentran en la misma carpeta que el proyecto.
 Las opciones de creaciones de perfil, modificacion de correo y contraseña no se encuentran activadas por el momento.
-![login](https://github.com/KevvCho/Choinet.Kevin.PrimerParcial/blob/master/ResourcesImg/login.gif)
+![login](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/login.gif)
 
 #### Agregar
 
 Al agregar un nuevo heroe se le va a permitir al usuario ingresar todos los datos de este mismo para luego ser reflejados en la lista.
-![main1](https://github.com/KevvCho/Choinet.Kevin.PrimerParcial/blob/master/ResourcesImg/main1.gif)
-![main2](https://github.com/KevvCho/Choinet.Kevin.PrimerParcial/blob/master/ResourcesImg/main2.gif)
+![main1](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/main1.gif)
+![main2](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/main2.gif)
 
 #### Modificar
 
 Al momento de modificar un heroe se abrira una ventana parecida a la de agregar pero solo permitiendo cambiar datos basicos como el nombre, poder y nivel de poder base.
-![main3](https://github.com/KevvCho/Choinet.Kevin.PrimerParcial/blob/master/ResourcesImg/main3.gif)
+![main3](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/main3.gif)
 
 #### Eliminar
 
 La aplicacion cuenta con una eliminacion inmediata del heroe seleccionado la cual se ve reflejada tanto graficamente como en la base de datos.
-![main3](https://github.com/KevvCho/Choinet.Kevin.PrimerParcial/blob/master/ResourcesImg/main3.gif)
+![main3](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/main3.gif)
 
 #### Otros
 
@@ -46,8 +46,8 @@ Entre otras cosas, el programa permite ordenamiento de la lista, guardado y carg
 
 #### (Abrir imagen y hacer zoom para mayor resolucion)
 
-![Diagrama entidades](https://github.com/KevvCho/Choinet.Kevin.PrimerParcial/blob/master/ResourcesImg/DiagramaEntidades.png)
-![Diagrama form](https://github.com/KevvCho/Choinet.Kevin.PrimerParcial/blob/master/ResourcesImg/DiagramaLogin.png)
+![Diagrama entidades](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/DiagramaEntidades.png)
+![Diagrama form](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/DiagramaLogin.png)
 
 
 

@@ -546,12 +546,12 @@ namespace Login
 
         private void OperacionCompletadaHandler(object sender, EventArgs e)
         {
-            MessageBox.Show("La operación se ha completado.");
+            MessageBox.Show("La operación se ha completado.", "Exito");
         }
 
         private void OperacionFalloHandler(object sender, EventArgs e)
         {
-            MessageBox.Show("Ocurrio un error en la operación.");
+            MessageBox.Show("Ocurrio un error en la operación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         /// <summary>

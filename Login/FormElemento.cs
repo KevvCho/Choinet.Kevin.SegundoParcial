@@ -89,9 +89,13 @@ namespace Login
             {
                 MessageBox.Show("Debes completar todos los campos.");
             }
-            else if (!int.TryParse(txtNivelPoder.Text, out _) || !int.TryParse(velTxt.Text, out _))
+            else if (!int.TryParse(txtNivelPoder.Text, out int nivelPoderTxt) || !int.TryParse(velTxt.Text, out int velocidadTxt))
             {
-                MessageBox.Show("No se admite texto en campos de numeros.");
+                MessageBox.Show("No se admite texto en campos de números.");
+            }
+            else if (nivelPoderTxt < 0 || velocidadTxt < 0)
+            {
+                MessageBox.Show("No se admiten números negativos.");
             }
             else
             {

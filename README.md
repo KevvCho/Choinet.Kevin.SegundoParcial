@@ -6,6 +6,8 @@ Me presento soy Kevin Adriel Choinet, actualmente cursando para Laboratorio II y
 
 ### Resumen
 
+A partir de la actualizacion desde la version anterior, el programa ahora cuenta con uso de conexion a base de datos, ligera mejora en fluidez al utilizar programacion multihilo y algunas mejoras adicionales para la mejor interaccion posible de parte del usuario.
+
 Esta aplicación proporciona al usuario la gestion de una lista de super heroes conectada en paralelo a una base de datos. 
 
 **Todos los datos que sean modificados se actualizaran de forma inmediata en su respectiva tabla.**
@@ -20,6 +22,7 @@ Es posible guardar y cargar una lista ya hecha como tambien eliminarla por compl
 
 El programa cuenta con un login basado en los datos de usuario previamente proveidos y los cuales se encuentran en la misma carpeta que el proyecto.
 Las opciones de creaciones de perfil, modificacion de correo y contraseña no se encuentran activadas por el momento.
+
 ![login](https://github.com/KevvCho/Choinet.Kevin.SegundoParcial/blob/master/ResourcesImg/login.gif)
 
 #### Agregar

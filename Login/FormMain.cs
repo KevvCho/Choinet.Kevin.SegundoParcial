@@ -45,7 +45,8 @@ namespace Login
             ActualizarBotones(this.perfilUsuario);
             LogConexion();
             ActualizarConexiones();
-
+            ado.OperacionCompletada += OperacionCompletadaHandler;
+            ado.OperacionFallo += OperacionFalloHandler;
             this.statusNombre.Text = this.nombreUsuario;
             this.statusFecha.Text = fechaActual.ToString("dd/MM/yyyy");
         }
@@ -307,7 +308,8 @@ namespace Login
         }
         /// <summary>
         /// Se llama a otro form para tomar los datos y luego de ser pasados se crea un nuevo heroe
-        /// segun el tipo siempre y cuando no se encuentre ya en la lista
+        /// segun el tipo siempre y cuando no se encuentre ya en la lista.
+        /// Se agrega a la coleccion y a la base de datos de forma paralela.
         /// </summary>
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -556,7 +558,6 @@ namespace Login
                             }
                         }
                         ado.BorrarDatosTabla();
-                        MessageBox.Show("Datos cargados exitosamente desde el archivo JSON.");
                     }
                     catch (Exception ex)
                     {
@@ -564,10 +565,22 @@ namespace Login
                     }
                 }
             }
+            
             ado.AgregarColeccion(coleccion);
             this.coleccion = coleccion;
             ActualizarItems();
         }
+
+        private void OperacionCompletadaHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("La operación se ha completado.");
+        }
+
+        private void OperacionFalloHandler(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ocurrio un error en la operación.");
+        }
+
         /// <summary>
         /// Se serializa un json con los datos de la lista actual de heroes
         /// </summary>

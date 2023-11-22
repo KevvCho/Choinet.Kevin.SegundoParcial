@@ -49,10 +49,15 @@ namespace Entidades
                 OnHeroeEliminado(heroe);
             }
         }
-
         protected virtual void OnHeroeEliminado(T heroe)
         {
             HeroeEliminado?.Invoke(this, heroe);
+        }
+
+        public void SuscribirMetodos()
+        {
+            HeroeAgregado += (sender, heroe) => Console.WriteLine($"Se ha agregado un heroe a la colección.");
+            HeroeEliminado += (sender, heroe) => Console.WriteLine($"Se ha eliminado un heroe de la colección.");
         }
 
         /// <summary>

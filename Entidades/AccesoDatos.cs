@@ -13,6 +13,8 @@ namespace Entidades
         private SqlConnection conexion;
         private SqlCommand comando;
         private static string cadena_conexion;
+        public event EventHandler OperacionCompletada;
+        public event EventHandler OperacionFallo;
 
         static AccesoDatos()
         {
@@ -110,7 +112,7 @@ namespace Entidades
                     int filasAfectadas = this.comando.ExecuteNonQuery();
 
                     if (filasAfectadas > 0)
-                    {
+                    { 
                         retorno = "Datos agregados correctamente.";
                     }
                     else
@@ -119,15 +121,26 @@ namespace Entidades
                         break;
                     }
                 }
-
+                OnOperacionCompletada();
                 this.conexion.Close();
             }
             catch (Exception e)
             {
+                OnOperacionFallo();
                 retorno = e.ToString();
             }
 
             return retorno;
+        }
+
+        protected virtual void OnOperacionCompletada()
+        {
+            OperacionCompletada?.Invoke(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnOperacionFallo()
+        {
+            OperacionFallo?.Invoke(this, EventArgs.Empty);
         }
 
         //Agrega heroe en particular

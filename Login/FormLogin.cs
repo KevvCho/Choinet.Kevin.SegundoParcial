@@ -51,7 +51,7 @@ namespace Login
                     if (usuario.Correo == correoIngresado && usuario.Clave == contraseñaIngresada)
                     {
                         loginCorrecto = true;
-                        MessageBox.Show("Bienvenido!");
+                        MessageBox.Show($"Bienvenido {usuario.Nombre}!");
                         FormMain mainForm = new FormMain(usuario.Nombre, usuario.Apellido, usuario.Correo, usuario.Perfil);
                         mainForm.Show();
                         this.Hide();

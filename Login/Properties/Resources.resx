@@ -124,10 +124,16 @@
   <data name="showPass1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\showPass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fondologin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondologin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mainbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="showPass2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\showPass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondologin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondologin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mainbg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

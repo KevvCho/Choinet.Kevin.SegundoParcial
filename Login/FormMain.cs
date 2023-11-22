@@ -414,7 +414,7 @@ namespace Login
             Heroe heroeSeleccionado = coleccion.ObtenerHeroe((string)lstNombres.SelectedItem);
 
             if (heroeSeleccionado != null)
-            { 
+            {
                 if (coleccion.ContieneHeroe(heroeSeleccionado))
                 {
                     if (ado.EliminarHeroeBD(heroeSeleccionado.Nombre, heroeSeleccionado.Poder.ToString(), heroeSeleccionado.NivelDePoder))
@@ -538,7 +538,7 @@ namespace Login
                     }
                 }
             }
-            
+
             ado.AgregarColeccion(coleccion);
             this.coleccion = coleccion;
             ActualizarItems();

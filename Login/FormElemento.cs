@@ -160,22 +160,29 @@ namespace Login
         {
             string tipoSeleccionado = boxTipo.SelectedItem.ToString();
 
+            string rutaImagen = @"../../../../ResourcesImg/aereo.png";
+
             if (tipoSeleccionado == "Acuatico")
             {
                 velocLbl.Text = "Velocidad de natacion";
                 boolBl.Text = "Tiene comunicacion marina";
+                rutaImagen = @"../../../../ResourcesImg/acuatico.png";
+
             }
             else if (tipoSeleccionado == "Terrestre")
             {
                 velocLbl.Text = "Velocidad";
                 boolBl.Text = "Tiene super fuerza";
+                rutaImagen = @"../../../../ResourcesImg/terrestre.png";
             }
             else if (tipoSeleccionado == "Aereo")
             {
                 velocLbl.Text = "Velocidad de vuelo";
                 boolBl.Text = "Tiene alas";
+                rutaImagen = @"../../../../ResourcesImg/aereo.png";
             }
 
+            logoHeroe.Image = Image.FromFile(rutaImagen);
 
             if (tipoSeleccionado != "Aereo" && tipoSeleccionado != "Terrestre" && tipoSeleccionado != "Acuatico")
             {
@@ -183,9 +190,11 @@ namespace Login
                 velTxt.Visible = false;
                 boolBl.Visible = false;
                 boolBx.Visible = false;
+                logoHeroe.Visible = false;
             }
             else
             {
+                logoHeroe.Visible = true;
                 velocLbl.Visible = true;
                 velTxt.Visible = true;
                 boolBl.Visible = true;

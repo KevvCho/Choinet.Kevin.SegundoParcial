@@ -42,11 +42,15 @@
             boolBl = new Label();
             boolBx = new ComboBox();
             velTxt = new TextBox();
+            logoHeroe = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)logoHeroe).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(25, 18);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
@@ -72,6 +76,8 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(25, 74);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
@@ -81,6 +87,8 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(26, 130);
             label3.Name = "label3";
             label3.Size = new Size(111, 15);
@@ -97,6 +105,8 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.ForeColor = SystemColors.ControlLightLight;
             label4.Location = new Point(318, 18);
             label4.Name = "label4";
             label4.Size = new Size(30, 15);
@@ -136,6 +146,8 @@
             // velocLbl
             // 
             velocLbl.AutoSize = true;
+            velocLbl.BackColor = Color.Transparent;
+            velocLbl.ForeColor = SystemColors.ControlLightLight;
             velocLbl.Location = new Point(319, 74);
             velocLbl.Name = "velocLbl";
             velocLbl.Size = new Size(60, 15);
@@ -145,6 +157,8 @@
             // boolBl
             // 
             boolBl.AutoSize = true;
+            boolBl.BackColor = Color.Transparent;
+            boolBl.ForeColor = SystemColors.ControlLightLight;
             boolBl.Location = new Point(318, 130);
             boolBl.Name = "boolBl";
             boolBl.Size = new Size(60, 15);
@@ -168,11 +182,23 @@
             velTxt.Size = new Size(214, 23);
             velTxt.TabIndex = 13;
             // 
+            // logoHeroe
+            // 
+            logoHeroe.BackColor = Color.Transparent;
+            logoHeroe.Location = new Point(352, 10);
+            logoHeroe.Name = "logoHeroe";
+            logoHeroe.Size = new Size(26, 23);
+            logoHeroe.SizeMode = PictureBoxSizeMode.StretchImage;
+            logoHeroe.TabIndex = 14;
+            logoHeroe.TabStop = false;
+            // 
             // FormElemento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.mainbg1;
             ClientSize = new Size(562, 240);
+            Controls.Add(logoHeroe);
             Controls.Add(velTxt);
             Controls.Add(boolBx);
             Controls.Add(boolBl);
@@ -190,7 +216,8 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormElemento";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Elemento";
+            Text = "Dato heroe";
+            ((System.ComponentModel.ISupportInitialize)logoHeroe).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -211,5 +238,6 @@
         private Label boolBl;
         private ComboBox boolBx;
         private TextBox velTxt;
+        private PictureBox logoHeroe;
     }
 }

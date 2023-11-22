@@ -51,12 +51,14 @@
             lstNombres = new ListBox();
             label3 = new Label();
             lstAtributos = new ListBox();
+            label4 = new Label();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // descripcionBox
             // 
+            descripcionBox.BackColor = SystemColors.ControlLight;
             descripcionBox.Location = new Point(512, 51);
             descripcionBox.Name = "descripcionBox";
             descripcionBox.ReadOnly = true;
@@ -131,6 +133,8 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(512, 33);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
@@ -205,6 +209,7 @@
             // 
             // lstConexiones
             // 
+            lstConexiones.BackColor = Color.LightGray;
             lstConexiones.Location = new Point(357, 326);
             lstConexiones.Name = "lstConexiones";
             lstConexiones.Size = new Size(430, 89);
@@ -215,6 +220,8 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(357, 308);
             label2.Name = "label2";
             label2.Size = new Size(110, 15);
@@ -223,6 +230,7 @@
             // 
             // lstNombres
             // 
+            lstNombres.BackColor = Color.Silver;
             lstNombres.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             lstNombres.FormattingEnabled = true;
             lstNombres.ItemHeight = 30;
@@ -234,6 +242,8 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(512, 194);
             label3.Name = "label3";
             label3.Size = new Size(56, 15);
@@ -242,6 +252,7 @@
             // 
             // lstAtributos
             // 
+            lstAtributos.BackColor = Color.LightGray;
             lstAtributos.FormattingEnabled = true;
             lstAtributos.ItemHeight = 15;
             lstAtributos.Location = new Point(512, 212);
@@ -250,11 +261,24 @@
             lstAtributos.Size = new Size(275, 94);
             lstAtributos.TabIndex = 12;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.ForeColor = SystemColors.ControlLightLight;
+            label4.Location = new Point(23, 33);
+            label4.Name = "label4";
+            label4.Size = new Size(85, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Lista de heroes";
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.mainbg1;
             ClientSize = new Size(800, 450);
+            Controls.Add(label4);
             Controls.Add(lstAtributos);
             Controls.Add(label3);
             Controls.Add(lstNombres);
@@ -271,7 +295,7 @@
             Location = new Point(200, 1200);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Administracion de datos";
+            Text = "Administracion de heroes";
             FormClosing += MainForm_FormClosing;
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
@@ -304,5 +328,6 @@
         private ToolStripMenuItem nivelDePoderOrdenar;
         private ToolStripStatusLabel conexionBDTxt;
         private ToolStripButton eliminarListaBtn;
+        private Label label4;
     }
 }
